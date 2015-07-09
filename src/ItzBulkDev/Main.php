@@ -6,6 +6,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
 use pocketmine\item\Item;
 use pocketmine\utils\TextFormat;
+use pocketmine\event\player\PlayerItemConsumeEvent as onEat;
 
 class Main extends PluginBase implements Listener{
 
@@ -23,6 +24,7 @@ public function onEnable(){
 	
 	 public function onEat(PlayerItemConsumeEvent $event) {
     	$player = $event->getPlayer();
+    	$item = $event->getItem()->getName();
     	$config = $this->getConfig();
         if($item == "Apple"){
         	$player->sendMessage("");
